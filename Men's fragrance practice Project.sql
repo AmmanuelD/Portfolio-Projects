@@ -64,12 +64,6 @@ SELECT *
 FROM PortfolioProjects..ebay_mens_perfume$
 Where brand = 'Alexandria Fragrances'
 
--- Many Typos in the itemLocation column
-
-SELECT itemLocation
-FROM PortfolioProjects..ebay_mens_perfume$
-Where not itemLocation like '%States%'
-
 
 
 
