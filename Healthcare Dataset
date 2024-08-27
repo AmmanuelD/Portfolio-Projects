@@ -1,0 +1,29 @@
+Select Distinct [Insurance Provider], AVG([Billing Amount]) as 'Average Price'
+FROM PortfolioProjects..healthcare_dataset$
+Group by [Insurance Provider]
+
+SELECT 
+    Medication, 
+    COUNT(CASE WHEN [Admission Type] = 'Elective' THEN 1 END) AS 'Elective Count', 
+    COUNT(CASE WHEN [Admission Type] = 'Urgent' THEN 1 END) AS 'Urgent Count', 
+    COUNT(CASE WHEN [Admission Type] = 'Emergency' THEN 1 END) AS 'Emergency Count'
+FROM 
+    PortfolioProjects..healthcare_dataset$
+WHERE 
+    [Admission Type] IN ('Elective', 'Urgent', 'Emergency')
+GROUP BY 
+    Medication;
+
+SELECT 
+    [Test Results], 
+    COUNT(CASE WHEN [Medical Condition] = 'Arthritis' THEN 1 END) AS 'Arthritis Count', 
+    COUNT(CASE WHEN [Medical Condition] = 'Asthma' THEN 1 END) AS 'Asthma Count', 
+    COUNT(CASE WHEN [Medical Condition] = 'Diabetes' THEN 1 END) AS 'Diabetes Count',
+	COUNT(CASE WHEN [Medical Condition] = 'Hypertension' THEN 1 END) AS 'Hypertension Count',
+	COUNT(CASE WHEN [Medical Condition] = 'Obesity' THEN 1 END) AS 'Obesity Count'
+FROM 
+    PortfolioProjects..healthcare_dataset$
+WHERE 
+    [Medical Condition] IN ('Arthritis', 'Asthma', 'Diabetes', 'Hypertension', 'Obesity')
+GROUP BY 
+    [Test Results];
